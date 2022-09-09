@@ -15,7 +15,6 @@ export class AuthService {
   async register(dto: AuthDto) {
     // parola hash 'leme 
     const hash = await argon.hash(dto.password)
-    console.log(hash);
     try {
       const user = await this.prisma.users.create({
         data: {
